@@ -1,13 +1,20 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import TodoList from './components/todoList';
+import './index.css';
+
+const todos = [
+  { id: 0, isDone: true, text: 'make components' },
+  { id: 1, isDone: false, text: 'design actions' },
+  { id: 2, isDone: false, text: 'TDD implement reducers' },
+  { id: 3, isDone: false, text: 'connect components' },
+];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TodoList todos={todos} />
   </React.StrictMode>,
   document.getElementById('root'),
 );
