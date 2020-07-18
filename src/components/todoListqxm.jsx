@@ -1,5 +1,6 @@
 // eslint-disable-next-line max-len
 /* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
+import PropTypes from 'prop-types';
 import React from 'react';
 import Todo from './todo';
 
@@ -9,7 +10,7 @@ function TodoListqxm(props) {
   const onSubmit = (event) => {
     const input = event.target;
     const text = input.value;
-    const isEnterKey = event.which == 13;
+    const isEnterKey = event.which === 13;
     const isLongEnough = text.length > 0;
 
     if (isEnterKey && isLongEnough) {
@@ -44,3 +45,13 @@ function TodoListqxm(props) {
 }
 
 export default TodoListqxm;
+
+TodoListqxm.propTypes = {
+  addTodo: PropTypes.func.isRequired,
+  todos: PropTypes.objectOf(PropTypes.any),
+  toggleTodo: PropTypes.func.isRequired,
+};
+
+TodoListqxm.defaultProps = {
+  todos: {},
+};
